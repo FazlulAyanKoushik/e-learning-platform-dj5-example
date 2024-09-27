@@ -1,0 +1,38 @@
+[
+{
+  "model": "courses.module",
+  "pk": 1,
+  "fields": {
+    "slug": "oop",
+    "created_at": "2024-09-27T17:35:20.851Z",
+    "updated_at": "2024-09-27T17:35:20.851Z",
+    "course": 1,
+    "title": "OOP",
+    "description": "Basic of OOP"
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 2,
+  "fields": {
+    "slug": "advance-oop",
+    "created_at": "2024-09-27T17:35:20.851Z",
+    "updated_at": "2024-09-27T17:35:20.851Z",
+    "course": 1,
+    "title": "Advance OOP",
+    "description": "Very advance of OOP"
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 3,
+  "fields": {
+    "slug": "physics-101",
+    "created_at": "2024-09-27T17:42:27.361Z",
+    "updated_at": "2024-09-27T17:42:27.361Z",
+    "course": 2,
+    "title": "Physics 101",
+    "description": "starting level physics"
+  }
+}
+]

@@ -1,0 +1,28 @@
+[
+{
+  "model": "courses.course",
+  "pk": 1,
+  "fields": {
+    "created_at": "2024-09-27T17:35:20.839Z",
+    "updated_at": "2024-09-27T17:35:20.839Z",
+    "owner": 1,
+    "subject": 4,
+    "title": "Python Programming",
+    "slug": "python-programming",
+    "overview": "this is python for beginner."
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 2,
+  "fields": {
+    "created_at": "2024-09-27T17:42:27.360Z",
+    "updated_at": "2024-09-27T17:42:27.360Z",
+    "owner": 1,
+    "subject": 1,
+    "title": "HSC Physics",
+    "slug": "hsc-physics",
+    "overview": "Basic Physics"
+  }
+}
+]
