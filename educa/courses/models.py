@@ -7,6 +7,8 @@ from common.utils import generate_unique_slug
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 
+from common.fields import OrderField
+
 User = get_user_model()
 
 
@@ -62,9 +64,10 @@ class Module(BaseModel):
     )
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
+    order = OrderField(blank=True, for_fields=['course'])
 
     def __str__(self):
-        return self.title
+        return f"{self.order}. {self.title}"
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -72,11 +75,15 @@ class Module(BaseModel):
             self.slug = generate_unique_slug(self, self.title)
         super().save(*args, **kwargs)
 
+    class Meta:
+        ordering = ['order']
+
 
 class ItemBase(BaseModel):
     owner = models.ForeignKey(
         User,
-        related_name='%(class)s_related',  # related name examples: texts_related, files_related, images_related, videos_related
+        related_name='%(class)s_related',
+        # related name examples: texts_related, files_related, images_related, videos_related
         on_delete=models.CASCADE
     )
 
@@ -118,6 +125,10 @@ class Content(BaseModel):
     )
     object_id = models.PositiveIntegerField()
     item = GenericForeignKey('content_type', 'object_id')
+    order = OrderField(blank=True, for_fields=['module'])
 
     def __str__(self):
         return str(self.item)
+
+    class Meta:
+        ordering = ['order']
